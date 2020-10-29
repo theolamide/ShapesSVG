@@ -4,20 +4,19 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <label for="shapes">Choose a shape:</label>
+        <select name="shapes">
+          <option value="none"></option>
+          <option value="circle">Circle</option>
+          <option value="rectangle">Rectangle</option>
+        </select>
+      </form>
+      
+        <svg width="20rem" height="20rem" style={{border: "1px solid black"}}>
+          <circle cx="10rem" cy="10rem" r="5rem" stroke="green" stroke-width="2" fill="yellow" />
+        </svg>
+        
     </div>
   );
 }
