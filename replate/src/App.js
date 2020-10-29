@@ -1,22 +1,44 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+import Circle from './Components/Circle.js';
+import Rectangle from './Components/Rectangle.js';
 import './App.css';
 
+const initial = {
+  Shape: ""
+}
+
 function App() {
+
+  const [currShape, setCurrShape] = useState(initial)
+
+  let toRender;
+
+  if (currShape.Shape === "circle"){
+      toRender = <Circle />
+    } else if (currShape.Shape === "rectangle"){
+      toRender = <Rectangle />
+    } 
+  
+  const handleChange = event => {
+    setCurrShape({ ...currShape, [event.target.name]: event.target.value})
+    console.log(currShape)
+  }
+    
   return (
     <div className="App">
       <form>
-        <label for="shapes">Choose a shape:</label>
-        <select name="shapes">
-          <option value="none"></option>
-          <option value="circle">Circle</option>
-          <option value="rectangle">Rectangle</option>
+        <label htmlFor="shapes">Choose a shape:</label>
+        <select 
+          name="Shape" 
+          value={currShape.Shape} 
+          onChange={handleChange}      
+        >
+          <option> -- </option>
+          <option value="circle"> circle </option>
+          <option value="rectangle"> rectangle </option>
         </select>
       </form>
-      
-        <svg width="20rem" height="20rem" style={{border: "1px solid black"}}>
-          <circle cx="10rem" cy="10rem" r="5rem" stroke="green" stroke-width="2" fill="yellow" />
-        </svg>
-        
+      {toRender}
     </div>
   );
 }
