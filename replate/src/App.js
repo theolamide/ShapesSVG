@@ -3,13 +3,13 @@ import Circle from './Components/Circle.js';
 import Rectangle from './Components/Rectangle.js';
 import './App.css';
 
-const initial = {
+const chooseShape = {
   Shape: ""
 }
 
 function App() {
 
-  const [currShape, setCurrShape] = useState(initial)
+  const [currShape, setCurrShape] = useState(chooseShape)
 
   let toRender;
 
@@ -21,7 +21,7 @@ function App() {
   
   const handleChange = event => {
     setCurrShape({ ...currShape, [event.target.name]: event.target.value})
-    console.log(currShape)
+    // console.log(currShape)
   }
     
   return (

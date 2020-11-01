@@ -5,7 +5,7 @@ const Rectangle = () => {
     return(
         <div>
             <svg width="20rem" height="20rem" style={{border: "1px solid blue", marginTop: "5rem"}}>
-                <circle cx="10rem" cy="10rem" r="5rem" stroke="red" stroke-width="2" fill="green" />
+                <rect x="2.5rem" y="7.5rem" width="15rem" height="5rem" stroke="red" strokeWidth="0.1rem" fill="green" />
             </svg>
         </div>
     )
