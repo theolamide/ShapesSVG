@@ -23,6 +23,16 @@ function App() {
     setCurrShape({ ...currShape, [event.target.name]: event.target.value})
     // console.log(currShape)
   }
+
+  const saveShapes = () => {
+    var existingShapes = localStorage.getItem("savedShapes")
+
+    existingShapes = existingShapes ? existingShapes.split(",") : []
+    existingShapes.push("What do we have here?")
+    console.log("32", existingShapes)
+    localStorage.setItem("savedShapes", existingShapes.toString())
+    console.log("34", existingShapes)
+  }
     
   return (
     <div className="App">
@@ -41,6 +51,9 @@ function App() {
       </form>
       
       {toRender}
+      <button onClick={saveShapes}>
+        Saved
+      </button>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import React from 'react';
 const SingleCircle = (props) => {
 
     const radius = props.shapeProperties.radius.toString();
-    const stroke = props.shapeProperties.outlineWidth.toString();
     return(
         <div>
             <svg 
@@ -16,9 +15,8 @@ const SingleCircle = (props) => {
                     cy="10rem" 
                     r={radius + "rem"}
                     stroke={props.shapeProperties.outlineColor} 
-                    strokeWidth={stroke + "rem"}
                     fill={props.shapeProperties.colorFill} 
-                    />
+                />
             </svg>
             
 

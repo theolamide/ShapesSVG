@@ -3,9 +3,7 @@ import SingleCircle from './SingleCircle.js';
 
 const shapeProperties = {
     radius: "",
-    outlineWidth: "",
-    outlineColor: "#C74D4D",
-    colorFill: "#2AE530"
+    colorFill: ""
 }
 
 const activateProps = {
@@ -31,40 +29,20 @@ const Circle = () => {
             <form className="Forms">
                 <input 
                     type="number"
-                    max = "9"
+                    max = "10"
                     min = "2"
                     name="radius"
-                    placeholder="Radius in digits"
+                    placeholder="Radius"
                     onChange={handleChange}
                     value={circleProps.radius}
-                    />
-                <input 
-                    type="number"
-                    max = "2"
-                    min = "0"
-                    name="outlineWidth"
-                    placeholder="Outline width in digits"
-                    onChange={handleChange}
-                    value={circleProps.outlineWidth}
                 />
-                {/* <span> */}
-                    <label htmlFor="outlineColor">Outline Color: </label>
-                    <input 
-                        type="color" 
-                        name="outlineColor" 
-                        value={circleProps.outlineColor}
-                        onChange={handleChange}
-                    />
-                {/* </span>
-                <span> */}
-                    <label htmlFor="colorFill">Fill Color: </label>
-                    <input 
-                        type="color" 
-                        name="colorFill" 
-                        value={circleProps.colorFill}
-                        onChange={handleChange}
-                    />
-                {/* </span> */}
+                <label htmlFor="colorFill">Color: </label>
+                <input 
+                    type="color" 
+                    name="colorFill" 
+                    value={circleProps.colorFill}
+                    onChange={handleChange}
+                />
             </form>
             
             {singleCircle}            
@@ -73,3 +51,27 @@ const Circle = () => {
 }
 
 export default Circle;
+
+// const shapeProperties = {
+//     radius: "3",
+//     outlineWidth: "1",
+//     outlineColor: "#C74D4D",
+//     colorFill: "#2AE530"
+// }
+
+{/* <input 
+                    type="number"
+                    max = "2"
+                    min = "0"
+                    name="outlineWidth"
+                    placeholder="Outline width in digits"
+                    onChange={handleChange}
+                    value={circleProps.outlineWidth}
+                />
+                <label htmlFor="outlineColor">Outline Color: </label>
+                <input 
+                    type="color" 
+                    name="outlineColor" 
+                    value={circleProps.outlineColor}
+                    onChange={handleChange}
+                /> */}
