@@ -28,39 +28,43 @@ const Circle = () => {
 
     return(
         <div>
-            <form>
+            <form className="Forms">
                 <input 
-                    type="text"
+                    type="number"
+                    max = "9"
+                    min = "2"
                     name="radius"
                     placeholder="Radius in digits"
                     onChange={handleChange}
-                    value={shapeProperties.radius}
+                    value={circleProps.radius}
                     />
                 <input 
-                    type="text"
+                    type="number"
+                    max = "2"
+                    min = "0"
                     name="outlineWidth"
                     placeholder="Outline width in digits"
                     onChange={handleChange}
-                    value={shapeProperties.outlineWidth}
+                    value={circleProps.outlineWidth}
                 />
-                <span>
+                {/* <span> */}
+                    <label htmlFor="outlineColor">Outline Color: </label>
                     <input 
                         type="color" 
                         name="outlineColor" 
-                        value={shapeProperties.outlineColor}
+                        value={circleProps.outlineColor}
                         onChange={handleChange}
                     />
-                    <label htmlFor="outlineColor">Outline Color: </label>
-                </span>
-                <span>
+                {/* </span>
+                <span> */}
+                    <label htmlFor="colorFill">Fill Color: </label>
                     <input 
                         type="color" 
                         name="colorFill" 
-                        value={shapeProperties.colorFill}
+                        value={circleProps.colorFill}
                         onChange={handleChange}
                     />
-                    <label htmlFor="colorFill">Fill Color: </label>
-                </span>
+                {/* </span> */}
             </form>
             
             {singleCircle}            

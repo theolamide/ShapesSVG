@@ -6,7 +6,11 @@ const SingleCircle = (props) => {
     const stroke = props.shapeProperties.outlineWidth.toString();
     return(
         <div>
-            <svg width="20rem" height="20rem" style={{border: "1px solid black", marginTop: "5rem"}}>
+            <svg 
+                width="20rem" 
+                height="20rem" 
+                style={{border: "1px solid black", marginTop: "5rem"}}
+            >
                 <circle 
                     cx="10rem" 
                     cy="10rem" 

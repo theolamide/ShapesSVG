@@ -1,12 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
+import SingleRectangle from './SingleRectangle.js';
+
+
+const shapeProperties = {
+    width: "",
+    height: "",
+    outlineWidth: "",
+    outlineColor: "#C74D4D",
+    colorFill: "#2AE530"
+}
+
+const activateProps = {
+    propertiesPresent: true
+}
 
 const Rectangle = () => {
 
+    const [rectProps, setRectProps] = useState(shapeProperties)
+    const [propStatus, setPropStatus] = useState(activateProps)
+    let singleRectangle
+
+    if(propStatus.propertiesPresent){
+        singleRectangle = <SingleRectangle shapeProperties={rectProps} />
+    }
+
+    const handleChange = event => {
+    setRectProps({ ...rectProps, [event.target.name]: event.target.value})
+    console.log(rectProps)
+    }
     return(
         <div>
-            <svg width="20rem" height="20rem" style={{border: "1px solid blue", marginTop: "5rem"}}>
-                <rect x="2.5rem" y="7.5rem" width="15rem" height="5rem" stroke="red" strokeWidth="0.1rem" fill="green" />
-            </svg>
+            Rectangle
         </div>
     )
 }
