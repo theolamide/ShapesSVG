@@ -36,8 +36,10 @@ function App() {
           <option> -- </option>
           <option value="circle"> circle </option>
           <option value="rectangle"> rectangle </option>
+          
         </select>
       </form>
+      
       {toRender}
     </div>
   );
