@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Circle from './Components/Circle.js';
 import Rectangle from './Components/Rectangle.js';
+import SavedRender from './Components/SavedRender.js';
 import './App.css';
 
 const chooseShape = {
@@ -10,11 +11,20 @@ const chooseShape = {
 function App() {
 
   const [currShape, setCurrShape] = useState(chooseShape)
-
+  
+  //Save shapes function to save shape data in localStorage
+  const saveShapes = (object, value) => {
+    var existingShapes = JSON.parse(localStorage.getItem(object)) || []
+    console.log(typeof existingShapes, existingShapes)
+    existingShapes.push(value)
+    console.log(existingShapes)
+    localStorage.setItem(object, JSON.stringify(existingShapes))
+  }
+  
   let toRender;
 
   if (currShape.Shape === "circle"){
-      toRender = <Circle />
+      toRender = <Circle saveShapes={saveShapes} />
     } else if (currShape.Shape === "rectangle"){
       toRender = <Rectangle />
     } 
@@ -24,15 +34,7 @@ function App() {
     // console.log(currShape)
   }
 
-  const saveShapes = () => {
-    var existingShapes = localStorage.getItem("savedShapes")
 
-    existingShapes = existingShapes ? existingShapes.split(",") : []
-    existingShapes.push("What do we have here?")
-    console.log("32", existingShapes)
-    localStorage.setItem("savedShapes", existingShapes.toString())
-    console.log("34", existingShapes)
-  }
     
   return (
     <div className="App">
@@ -51,9 +53,9 @@ function App() {
       </form>
       
       {toRender}
-      <button onClick={saveShapes}>
-        Saved
-      </button>
+
+      <SavedRender />
+      
     </div>
   );
 }

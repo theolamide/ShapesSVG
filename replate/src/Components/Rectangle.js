@@ -5,7 +5,7 @@ import SingleRectangle from './SingleRectangle.js';
 const shapeProperties = {
     width: "",
     height: "",
-    colorFill: "#2AE530"
+    colorFill: ""
 }
 
 const activateProps = {
@@ -61,20 +61,3 @@ const Rectangle = () => {
 }
 
 export default Rectangle;
-
-{/* <input 
-                    type="number"
-                    max = "2"
-                    min = "0"
-                    name="outlineWidth"
-                    placeholder="Outline width in digits"
-                    onChange={handleChange}
-                    value={rectProps.outlineWidth}
-                /> */}
-                {/* <label htmlFor="outlineColor">Outline Color: </label>
-                <input 
-                    type="color" 
-                    name="outlineColor" 
-                    value={rectProps.outlineColor}
-                    onChange={handleChange}
-                /> */}
