@@ -38,23 +38,25 @@ function App() {
     
   return (
     <div className="App">
-      <form>
-        <label htmlFor="shapes">Choose a shape:</label>
-        <select 
-          name="Shape" 
-          value={currShape.Shape} 
-          onChange={handleChange}      
-        >
-          <option> -- </option>
-          <option value="circle"> circle </option>
-          <option value="rectangle"> rectangle </option>
-          
-        </select>
-      </form>
-      
-      {toRender}
-
-      <SavedRender />
+      <div className = "rootFormAndRender">
+        <form className="chooseShape">
+            <label htmlFor="shapes">Choose a Shape:</label>
+            <select 
+              name="Shape" 
+              value={currShape.Shape} 
+              onChange={handleChange}      
+            >
+              <option> -- </option>
+              <option value="circle"> circle </option>
+              <option value="rectangle"> rectangle </option>              
+            </select>
+        </form>
+        
+        {toRender}
+      </div>
+      <div className="shapesRenderBoard">
+        <SavedRender />
+      </div>
       
     </div>
   );

@@ -7,20 +7,9 @@ const shapeProperties = {
     height: "2",
     colorFill: "#C5302B"
 }
-
-const activateProps = {
-    propertiesPresent: true
-}
-
 const Rectangle = ({saveShapes}) => {
 
     const [rectProps, setRectProps] = useState(shapeProperties)
-    const [propStatus, setPropStatus] = useState(activateProps)
-    let singleRectangle
-
-    if(propStatus.propertiesPresent){
-        singleRectangle = <SingleRectangle shapeProperties={rectProps} />
-    }
 
     const handleChange = event => {
     setRectProps({ ...rectProps, [event.target.name]: event.target.value})
@@ -28,35 +17,41 @@ const Rectangle = ({saveShapes}) => {
     }
     return(
         <div>
-            <form className="Forms">
-                <input
-                    type="number"
-                    max="18"
-                    min="3"
-                    name="width"
-                    placeholder="Width"
-                    onChange={handleChange}
-                    value={rectProps.width}
-                />
-                <input
-                    type="number"
-                    max="9"
-                    min="2"
-                    name="height"
-                    placeholder="height"
-                    onChange={handleChange}
-                    value={rectProps.height}
-                />                
-                <label htmlFor="colorFill">Color: </label>
-                <input 
-                    type="color" 
-                    name="colorFill" 
-                    value={rectProps.colorFill}
-                    onChange={handleChange}
-                />
+            <form className="shapeForms">
+                <span className="shapeSpan">
+                    <label htmlFor="width">Width: </label>
+                    <input
+                        type="number"
+                        max="18"
+                        min="3"
+                        name="width"
+                        onChange={handleChange}
+                        value={rectProps.width}
+                    />
+                </span>
+                <span className="shapeSpan">
+                    <label htmlFor="height">Height: </label>
+                    <input
+                        type="number"
+                        max="18"
+                        min="2"
+                        name="height"
+                        onChange={handleChange}
+                        value={rectProps.height}
+                    />
+                </span>
+                <span className="shapeSpan">          
+                    <label htmlFor="colorFill">Color: </label>
+                    <input 
+                        type="color" 
+                        name="colorFill" 
+                        value={rectProps.colorFill}
+                        onChange={handleChange}
+                    />
+                </span>  
             </form>
 
-            {singleRectangle}
+            <SingleRectangle shapeProperties={rectProps} />
 
             <button 
                 type="button"

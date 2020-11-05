@@ -11,8 +11,7 @@ const SingleRectangle = (props) => {
         <div>
             <svg 
                 width="20rem" 
-                height="20rem" 
-                style={{marginTop: "5rem"}}
+                height="20rem"
             >
                 <rect 
                     x= {xCenter + "rem"}
