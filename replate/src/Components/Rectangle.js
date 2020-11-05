@@ -3,16 +3,16 @@ import SingleRectangle from './SingleRectangle.js';
 
 
 const shapeProperties = {
-    width: "",
-    height: "",
-    colorFill: ""
+    width: "3",
+    height: "2",
+    colorFill: "#C5302B"
 }
 
 const activateProps = {
     propertiesPresent: true
 }
 
-const Rectangle = () => {
+const Rectangle = ({saveShapes}) => {
 
     const [rectProps, setRectProps] = useState(shapeProperties)
     const [propStatus, setPropStatus] = useState(activateProps)
@@ -32,7 +32,7 @@ const Rectangle = () => {
                 <input
                     type="number"
                     max="18"
-                    min="4"
+                    min="3"
                     name="width"
                     placeholder="Width"
                     onChange={handleChange}
@@ -41,7 +41,7 @@ const Rectangle = () => {
                 <input
                     type="number"
                     max="9"
-                    min="4"
+                    min="2"
                     name="height"
                     placeholder="height"
                     onChange={handleChange}
@@ -55,7 +55,15 @@ const Rectangle = () => {
                     onChange={handleChange}
                 />
             </form>
+
             {singleRectangle}
+
+            <button 
+                type="button"
+                onClick={saveShapes.bind(this, "existingProp", rectProps)}
+            >
+                Save Shape
+            </button>
         </div>
     )
 }

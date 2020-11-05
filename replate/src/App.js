@@ -15,9 +15,9 @@ function App() {
   //Save shapes function to save shape data in localStorage
   const saveShapes = (object, value) => {
     var existingShapes = JSON.parse(localStorage.getItem(object)) || []
-    console.log(typeof existingShapes, existingShapes)
+    // console.log(typeof existingShapes, existingShapes)
     existingShapes.push(value)
-    console.log(existingShapes)
+    // console.log(existingShapes)
     localStorage.setItem(object, JSON.stringify(existingShapes))
   }
   
@@ -26,7 +26,7 @@ function App() {
   if (currShape.Shape === "circle"){
       toRender = <Circle saveShapes={saveShapes} />
     } else if (currShape.Shape === "rectangle"){
-      toRender = <Rectangle />
+      toRender = <Rectangle saveShapes={saveShapes} />
     } 
   
   const handleChange = event => {

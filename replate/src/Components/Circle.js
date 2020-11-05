@@ -2,8 +2,8 @@ import React , {useState} from 'react';
 import SingleCircle from './SingleCircle.js';
 
 const shapeProperties = {
-    radius: "",
-    colorFill: ""
+    radius: "2",
+    colorFill: "#ffffff"
 }
 
 const activateProps = {

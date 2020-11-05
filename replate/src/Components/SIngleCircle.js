@@ -8,7 +8,7 @@ const SingleCircle = (props) => {
             <svg 
                 width="20rem" 
                 height="20rem" 
-                style={{border: "1px solid black", marginTop: "5rem"}}
+                style={{marginTop: "5rem"}}
             >
                 <circle 
                     cx="10rem" 
