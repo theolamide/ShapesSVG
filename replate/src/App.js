@@ -35,6 +35,7 @@ function App() {
     return (
     <div className="App">
       <div className = "rootFormAndRender">
+        
         <form className="chooseShape">
             <label htmlFor="shapes">Choose a Shape:</label>
             <select 
@@ -48,6 +49,7 @@ function App() {
             </select>
         </form>
 
+        {/* Shape Creation Canvas */}
         {toRender}
 
       </div>

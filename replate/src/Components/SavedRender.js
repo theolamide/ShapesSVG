@@ -4,11 +4,12 @@ import SingleRectangle from './SingleRectangle.js'
 
 const SavedRender = () => {
     const savedShapes = JSON.parse(localStorage.getItem("existingProp")) || false
-    console.log("savedShapes", savedShapes)
+
     let circles 
     let rectangles
     let circleMap
     let rectangleMap
+
     if(savedShapes){
         circles = savedShapes.filter(object => object.shapeType === "circle")
         rectangles = savedShapes.filter(object => object.shapeType === "rectangle")
@@ -27,10 +28,13 @@ const SavedRender = () => {
                 </div>
             ))
     };
-    // console.log("circles", circles)
-    // console.log("rectangles", rectangles)
-    // console.log("circleMap", circleMap)
-    // console.log("rectangleMap", rectangleMap)
+
+    const clearCanvas = () => {
+        localStorage.removeItem("existingProp")
+        window.location.reload()
+        alert("Canvas Cleared")
+    }
+
     return(
         <div className="renderRoot">
             {/* Conditionally render heading. There are two conditionals here becasue of styling purposes.*/}
@@ -40,11 +44,22 @@ const SavedRender = () => {
                 </h1> : 
                 <h1>
                     LET'S MAKE SOME SHAPES
-                </h1>}
+                </h1>
+            }
+
+                
             
             {/* Conditional render 2, for redered shapes or gif when local storage is empty*/}
-            { savedShapes ? 
-                <span>                
+            { savedShapes ?
+                
+                <span>
+                    <button 
+                    className="clearSavedButton"
+                    onClick={clearCanvas}
+                    >
+                        Clear Canvas
+                    </button>
+
                     {circleMap}
                     {rectangleMap}
                 </span> : 

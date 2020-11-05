@@ -26,7 +26,7 @@ const Circle = ({saveShapes}) => {
     }
 
     return(
-        <div>
+        <div className="toRender">
             <form className="shapeForms">
                 <span className="shapeSpan">
                     <label htmlFor="radius">Radius: </label>

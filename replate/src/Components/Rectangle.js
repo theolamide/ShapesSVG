@@ -16,7 +16,7 @@ const Rectangle = ({saveShapes}) => {
     setRectProps({ ...rectProps, [event.target.name]: event.target.value})
     }
     return(
-        <div>
+        <div className="toRender">
             <form className="shapeForms">
                 <span className="shapeSpan">
                     <label htmlFor="width">Width: </label>
