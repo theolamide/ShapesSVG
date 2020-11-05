@@ -11,7 +11,6 @@ const Circle = ({saveShapes}) => {
     
     const handleChange = event => {
     setCircleProps({ ...circleProps, [event.target.name]: event.target.value})
-    // console.log(circleProps)
     }
     return(
         <div>
@@ -41,6 +40,7 @@ const Circle = ({saveShapes}) => {
             <SingleCircle shapeProperties={circleProps} /> 
             <button 
                 type="button"
+                className="saveShapeButton"
                 onClick={saveShapes.bind(this, "existingProp", circleProps)}
             >
                 Save Shape

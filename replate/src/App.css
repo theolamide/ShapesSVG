@@ -3,7 +3,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  /* border: 4px solid red; */
+  /* border: 4px solid blue; */
 }
 
 .rootFormAndRender{
@@ -28,6 +28,7 @@
 .shapeForms{
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .shapeSpan{
@@ -51,11 +52,14 @@ select, input{
 input[type="color"]{
   border: 3px solid #BAF4DB;
   width: 7rem;
-	height: 5rem;
+  height: 5rem;
+  cursor: pointer;
 }
+
 input[type="color"]::-webkit-color-swatch-wrapper {
 	padding: 0;
 }
+
 input[type="color"]::-webkit-color-swatch {
   border: 2px solid #A9BCB4;
   border-radius: 0.25rem;
@@ -65,12 +69,16 @@ label{
   font-size: 1.25rem;
 }
 
-/* svg{
-  margin: 0;
-} */
-
 .shapesRenderBoard{
-  margin-left: 42%;
+  margin-top: 2%;
+  margin-left: 40%;
+  width: 60%;
+  box-sizing: border-box;
+  /* border: 4px solid red; */
+}
+
+.singleShapeRoot{
+  width: 100%;
 }
 
 .renderRoot{
@@ -81,7 +89,14 @@ label{
 }
 
 .circleMapContainer{
-  width: 20rem;
-  
+  width: 20rem;  
 }
 
+.saveShapeButton{
+  width: 10rem;
+  height: 3rem;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+}

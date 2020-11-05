@@ -5,13 +5,16 @@ const SingleRectangle = (props) => {
     let intHeight = props.shapeProperties.height
     let width = intWidth.toString();
     let height = intHeight.toString();
-    let xCenter = ((20-intWidth)/2).toString()
-    let yCenter = ((20-intHeight)/2).toString()
+    let svgWidth = 20
+    let svgHeight = 20
+    let xCenter = ((svgWidth-intWidth)/2).toString()
+    let yCenter = ((svgHeight-intHeight)/2).toString()
     return(
-        <div>
+        <div className="singleShapeRoot">
             <svg 
                 width="20rem" 
                 height="20rem"
+                // style={{margin: "2.5rem"}}
             >
                 <rect 
                     x= {xCenter + "rem"}

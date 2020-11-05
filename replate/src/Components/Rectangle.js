@@ -13,7 +13,6 @@ const Rectangle = ({saveShapes}) => {
 
     const handleChange = event => {
     setRectProps({ ...rectProps, [event.target.name]: event.target.value})
-    // console.log(rectProps)
     }
     return(
         <div>
@@ -55,6 +54,7 @@ const Rectangle = ({saveShapes}) => {
 
             <button 
                 type="button"
+                className="saveShapeButton"
                 onClick={saveShapes.bind(this, "existingProp", rectProps)}
             >
                 Save Shape

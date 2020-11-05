@@ -15,14 +15,14 @@ function App() {
   //Save shapes function to save shape data in localStorage
   const saveShapes = (object, value) => {
     var existingShapes = JSON.parse(localStorage.getItem(object)) || []
-    // console.log(typeof existingShapes, existingShapes)
     existingShapes.push(value)
-    // console.log(existingShapes)
     localStorage.setItem(object, JSON.stringify(existingShapes))
+    window.location.reload()
+    alert("Shape Added")
   }
   
+  // Conditional render of shapes form
   let toRender;
-
   if (currShape.Shape === "circle"){
       toRender = <Circle saveShapes={saveShapes} />
     } else if (currShape.Shape === "rectangle"){
@@ -31,12 +31,8 @@ function App() {
   
   const handleChange = event => {
     setCurrShape({ ...currShape, [event.target.name]: event.target.value})
-    // console.log(currShape)
   }
-
-
-    
-  return (
+    return (
     <div className="App">
       <div className = "rootFormAndRender">
         <form className="chooseShape">
@@ -51,10 +47,14 @@ function App() {
               <option value="rectangle"> rectangle </option>              
             </select>
         </form>
-        
+
         {toRender}
+
       </div>
       <div className="shapesRenderBoard">
+        <h1>
+          Your Saved Shapes
+        </h1>
         <SavedRender />
       </div>
       
