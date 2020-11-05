@@ -1,8 +1,10 @@
 import React , {useState} from 'react';
 import SingleCircle from './SingleCircle.js';
 
+// Initial Properties
 const shapeProperties = {
     radius: "2",
+    shapeType:"circle",
     colorFill: "#ffffff"
 }
 
@@ -10,8 +12,19 @@ const Circle = ({saveShapes}) => {
     const [circleProps, setCircleProps] = useState(shapeProperties)
     
     const handleChange = event => {
-    setCircleProps({ ...circleProps, [event.target.name]: event.target.value})
+        // Canvas has a set width and height. Prevent entering value that will over flow canvas space or lower than specified minimum to prevent going negative.
+        let valueToCheck
+        if (event.target.name === "radius"){
+            valueToCheck = event.target.value
+        }
+
+        if (valueToCheck > 10 || valueToCheck < 2){
+            alert("Not allowed")
+        } else {
+            setCircleProps({ ...circleProps, [event.target.name]: event.target.value})
+        }    
     }
+
     return(
         <div>
             <form className="shapeForms">

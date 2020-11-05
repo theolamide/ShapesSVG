@@ -51,10 +51,7 @@ function App() {
         {toRender}
 
       </div>
-      <div className="shapesRenderBoard">
-        <h1>
-          Your Saved Shapes
-        </h1>
+      <div className="shapesRenderBoard">        
         <SavedRender />
       </div>
       

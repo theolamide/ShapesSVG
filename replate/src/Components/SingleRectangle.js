@@ -3,8 +3,8 @@ import React from 'react';
 const SingleRectangle = (props) => {
     let intWidth = props.shapeProperties.width
     let intHeight = props.shapeProperties.height
-    let width = intWidth.toString();
-    let height = intHeight.toString();
+    let width = intWidth;
+    let height = intHeight;
     let svgWidth = 20
     let svgHeight = 20
     let xCenter = ((svgWidth-intWidth)/2).toString()

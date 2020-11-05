@@ -11,8 +11,7 @@ const SingleCircle = (props) => {
         <div className="singleShapeRoot">
             <svg 
                 width="20rem" 
-                height="20rem" 
-                // style={{margin: "2.5rem"}}
+                height="20rem"
             >
                 <circle 
                     cx={xCenter + "rem"}

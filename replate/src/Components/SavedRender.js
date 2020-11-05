@@ -4,14 +4,14 @@ import SingleRectangle from './SingleRectangle.js'
 
 const SavedRender = () => {
     const savedShapes = JSON.parse(localStorage.getItem("existingProp")) || false
-    // console.log("savedShapes", savedShapes)
+    console.log("savedShapes", savedShapes)
     let circles 
     let rectangles
     let circleMap
     let rectangleMap
     if(savedShapes){
-        circles = savedShapes.filter(object => Object.keys(object).length === 2)
-        rectangles = savedShapes.filter(object => Object.keys(object).length === 3)
+        circles = savedShapes.filter(object => object.shapeType === "circle")
+        rectangles = savedShapes.filter(object => object.shapeType === "rectangle")
 
         circleMap = circles.map(item=> (
                 <div className="circleMapContainer" key={item.colorFill}>
@@ -33,8 +33,31 @@ const SavedRender = () => {
     // console.log("rectangleMap", rectangleMap)
     return(
         <div className="renderRoot">
-            {circleMap}
-            {rectangleMap}
+            {/* Conditionally render heading. There are two conditionals here becasue of styling purposes.*/}
+            { savedShapes ? 
+                <h1>
+                    Your Saved Shapes
+                </h1> : 
+                <h1>
+                    LET'S MAKE SOME SHAPES
+                </h1>}
+            
+            {/* Conditional render 2, for redered shapes or gif when local storage is empty*/}
+            { savedShapes ? 
+                <span>                
+                    {circleMap}
+                    {rectangleMap}
+                </span> : 
+                <span>                
+                    <iframe 
+                        src="https://giphy.com/embed/1O2BRZcDgIfDsKMTbG" width="480" 
+                        height="271" 
+                        frameBorder="0"
+                        style={{margin: "1rem"}}
+                    >
+                    </iframe>                
+                </span>
+            }
         </div>
     )
 }

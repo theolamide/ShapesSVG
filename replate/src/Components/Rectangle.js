@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import SingleRectangle from './SingleRectangle.js';
 
 
-const shapeProperties = {
+const shapeProperties = {    
     width: "3",
     height: "2",
+    shapeType: "rectangle",
     colorFill: "#C5302B"
 }
 const Rectangle = ({saveShapes}) => {
