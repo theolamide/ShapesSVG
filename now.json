@@ -1,0 +1,6 @@
+{
+    "version": 2,
+    "name": "replate",
+    "builds": [{"src":"replate/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [{"src": "/(.*)", "dest": "replate/$1"}]
+}
