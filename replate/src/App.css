@@ -30,7 +30,7 @@ body{
 .shapeForms{
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .shapeSpan{
