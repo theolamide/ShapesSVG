@@ -2,7 +2,7 @@ import React from 'react';
 import SingleCircle from './SingleCircle.js';
 import SingleRectangle from './SingleRectangle.js'
 
-const SavedRender = () => {
+const SavedRender = ({myRef}) => {
     const savedShapes = JSON.parse(localStorage.getItem("existingProp")) || false
 
     let circles 
@@ -36,7 +36,7 @@ const SavedRender = () => {
     }
 
     return(
-        <div className="renderRoot">
+        <div className="renderRoot" ref={myRef}>
             {/* Conditionally render heading. There are two conditionals here becasue of styling purposes.*/}
             { savedShapes ? 
                 <h1>
@@ -46,8 +46,6 @@ const SavedRender = () => {
                     LET'S MAKE SOME SHAPES
                 </h1>
             }
-
-                
             
             {/* Conditional render 2, for redered shapes or gif when local storage is empty*/}
             { savedShapes ?
@@ -65,7 +63,9 @@ const SavedRender = () => {
                 </span> : 
                 <span>                
                     <iframe 
-                        src="https://giphy.com/embed/1O2BRZcDgIfDsKMTbG" width="480" 
+                        src="https://giphy.com/embed/1O2BRZcDgIfDsKMTbG"
+                        title="Blank paper gif"
+                        width="480" 
                         height="271" 
                         frameBorder="0"
                         style={{margin: "1rem"}}

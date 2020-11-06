@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState, useRef} from 'react';
 import SingleCircle from './SingleCircle.js';
 
 // Initial Properties
@@ -8,7 +8,7 @@ const shapeProperties = {
     colorFill: "#ffffff"
 }
 
-const Circle = ({saveShapes}) => {
+const Circle = ({saveShapes, executeScroll}) => {
     const [circleProps, setCircleProps] = useState(shapeProperties)
     
     const handleChange = event => {
@@ -18,11 +18,17 @@ const Circle = ({saveShapes}) => {
             valueToCheck = event.target.value
         }
 
-        if (valueToCheck > 10 || valueToCheck < 2){
-            alert("Not allowed")
+        if (valueToCheck > 10 || valueToCheck < 0){
+            alert("Maximum and Minimun allowed radius are 10 and 2 respectively")
         } else {
             setCircleProps({ ...circleProps, [event.target.name]: event.target.value})
         }    
+    }
+
+
+    const buttonClick = () => {
+        saveShapes.bind(this, "existingProp", circleProps)()
+        executeScroll()
     }
 
     return(
@@ -54,7 +60,7 @@ const Circle = ({saveShapes}) => {
             <button 
                 type="button"
                 className="saveShapeButton"
-                onClick={saveShapes.bind(this, "existingProp", circleProps)}
+                onClick={buttonClick}
             >
                 Save Shape
             </button>

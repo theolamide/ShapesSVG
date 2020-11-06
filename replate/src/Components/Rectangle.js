@@ -8,12 +8,32 @@ const shapeProperties = {
     shapeType: "rectangle",
     colorFill: "#C5302B"
 }
-const Rectangle = ({saveShapes}) => {
+const Rectangle = ({saveShapes, executeScroll}) => {
 
     const [rectProps, setRectProps] = useState(shapeProperties)
 
     const handleChange = event => {
-    setRectProps({ ...rectProps, [event.target.name]: event.target.value})
+
+        let heightToCheck
+        let widthToCheck 
+
+        if (event.target.name === "height"){
+            heightToCheck = event.target.value
+        }
+        if (event.target.name === "width"){
+            widthToCheck = event.target.value
+        }
+
+        if (heightToCheck > 18 || heightToCheck < 0 || widthToCheck > 18 || widthToCheck < 0){
+            alert("Maximum and Minimum height are 18 and 1 respectively while Maximum and Minimum width are 18 and 1 respectively")
+        } else {
+            setRectProps({ ...rectProps, [event.target.name]: event.target.value})
+        }
+    }
+
+    const buttonClick = () => {
+        saveShapes.bind(this, "existingProp", rectProps)()
+        executeScroll()
     }
     return(
         <div className="toRender">
@@ -23,7 +43,7 @@ const Rectangle = ({saveShapes}) => {
                     <input
                         type="number"
                         max="18"
-                        min="3"
+                        min="1"
                         name="width"
                         onChange={handleChange}
                         value={rectProps.width}
@@ -34,7 +54,7 @@ const Rectangle = ({saveShapes}) => {
                     <input
                         type="number"
                         max="18"
-                        min="2"
+                        min="1"
                         name="height"
                         onChange={handleChange}
                         value={rectProps.height}
@@ -56,7 +76,7 @@ const Rectangle = ({saveShapes}) => {
             <button 
                 type="button"
                 className="saveShapeButton"
-                onClick={saveShapes.bind(this, "existingProp", rectProps)}
+                onClick={buttonClick}
             >
                 Save Shape
             </button>

@@ -133,7 +133,7 @@ label{
 
 @media(max-width: 1000px){
   .rootFormAndRender{
-    position: fixed;
+    position: absolute;
     left: 0;
     width: 100%;
     height: 40%;
@@ -144,27 +144,29 @@ label{
     width: 30%;
     margin: 0;
     height: 80%;
-    border: 1px solid red;
     flex-direction: column;
     justify-content: center;
+    /* border: 1px solid red; */
   }
 
   .toRender{
     display: flex;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
   }
 
   .shapeForms{
     margin: 15% 0;
-    border: 1px solid blue;  
+    /* border: 1px solid yellow;   */
   }
 
   .shapeSpan{
     width: 90%;
+    /* border: 1px solid purple;   */
   }
 
   .singleShapeRoot{
     padding: 1% 0;
+    /* border: 1px solid red;   */
   }
 
   .saveShapeButton{
@@ -177,10 +179,53 @@ label{
   }
 
   .shapesRenderBoard{ 
-  margin: 0 auto;
-  margin-top: 22rem;
-  width: 60%;
-  box-sizing: border-box;
-  /* border: 4px solid red; */
+    margin: 0 auto;
+    margin-top: 32rem;
+    width: 100%;
+    box-sizing: border-box;
+    /* border: 4px solid red; */
+  }
 }
+
+/* @media(max-width: 850px){
+  .rootFormAndRender{
+    width: 100%;
+    height: 60%;
+    flex-direction: column;
+  }
+
+  .chooseShape{
+    margin: 0 auto;
+    height: 5%;
+  }
+} */
+
+@media(max-width: 850px){
+  .rootFormAndRender{
+    height: 100%;
+    flex-direction: column;
+  }
+  .chooseShape{
+    margin: auto;
+  }
+
+  .shapeForms{
+    margin: 2.5% 0 0 0;
+  }
+
+  .shapesRenderBoard{
+    margin-top: 180%;
+  }
+
+  .toRender{
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+  }
+
+  .saveShapeButton{
+    margin: 0 0 2% 52%;
+  }
 }
