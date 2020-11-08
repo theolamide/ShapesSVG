@@ -5,29 +5,6 @@ import SingleRectangle from './SingleRectangle.js'
 const SavedRender = ({myRef}) => {
     const savedShapes = JSON.parse(localStorage.getItem("existingProp")) || false
 
-    let circles 
-    let rectangles
-    let circleMap
-    let rectangleMap
-
-    if(savedShapes){
-        circles = savedShapes.filter(object => object.shapeType === "circle")
-        rectangles = savedShapes.filter(object => object.shapeType === "rectangle")
-
-        circleMap = circles.map(item=> (
-                <div className="circleMapContainer" key={item.colorFill}>
-                    {/* using colorFill as key is a bad choice. Will figure out a better choice if I had more time */}
-                    <SingleCircle shapeProperties={item} />
-                </div>
-            ))
-
-        rectangleMap = rectangles.map(item=> (
-                <div className="circleMapContainer" key={item.colorFill}>
-                    {/* using colorFill as key is a bad choice. Will figure out a better choice if I had more time */}
-                    <SingleRectangle shapeProperties={item} />
-                </div>
-            ))
-    };
 
     const clearCanvas = () => {
         localStorage.removeItem("existingProp")
@@ -48,8 +25,8 @@ const SavedRender = ({myRef}) => {
             }
             
             {/* Conditional render 2, for redered shapes or gif when local storage is empty*/}
-            { savedShapes ?
-                
+            {
+                savedShapes ? 
                 <span>
                     <button 
                     className="clearSavedButton"
@@ -58,9 +35,16 @@ const SavedRender = ({myRef}) => {
                         Clear Canvas
                     </button>
 
-                    {circleMap}
-                    {rectangleMap}
-                </span> : 
+                    {savedShapes.map(item =>(
+                        <div className="circleMapContainer" key={item.colorFill}>
+                            {item.shapeType === "circle" ?
+                                <SingleCircle shapeProperties={item} /> :
+                                <SingleRectangle shapeProperties={item} />
+                            }
+                        </div>
+                    ))}
+
+                </span> :
                 <span>                
                     <iframe 
                         src="https://giphy.com/embed/1O2BRZcDgIfDsKMTbG"

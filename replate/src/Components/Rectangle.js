@@ -31,10 +31,15 @@ const Rectangle = ({saveShapes, executeScroll}) => {
         }
     }
 
-    const buttonClick = () => {
+    const saveShapeAction = () => {
         saveShapes.bind(this, "existingProp", rectProps)()
         executeScroll()
     }
+
+    const reset = () => {
+        setRectProps(shapeProperties)
+    }
+
     return(
         <div className="toRender">
             <form className="shapeForms">
@@ -73,13 +78,22 @@ const Rectangle = ({saveShapes, executeScroll}) => {
 
             <SingleRectangle shapeProperties={rectProps} />
 
-            <button 
-                type="button"
-                className="saveShapeButton"
-                onClick={buttonClick}
-            >
-                Save Shape
-            </button>
+            <span className="saveAndResetSpan">            
+                <button
+                    type="button"
+                    className="saveShapeButton"
+                    onClick={reset}
+                >
+                    Reset
+                </button>
+                <button 
+                    type="button"
+                    className="saveShapeButton"
+                    onClick={saveShapeAction}
+                >
+                    Save Shape
+                </button>
+            </span> 
         </div>
     )
 }

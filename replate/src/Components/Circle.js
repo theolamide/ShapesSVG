@@ -26,9 +26,13 @@ const Circle = ({saveShapes, executeScroll}) => {
     }
 
 
-    const buttonClick = () => {
+    const saveShapeAction = () => {
         saveShapes.bind(this, "existingProp", circleProps)()
         executeScroll()
+    }
+
+    const reset = () => {
+        setCircleProps(shapeProperties)
     }
 
     return(
@@ -56,14 +60,23 @@ const Circle = ({saveShapes, executeScroll}) => {
                 </span>
             </form>
             
-            <SingleCircle shapeProperties={circleProps} /> 
-            <button 
-                type="button"
-                className="saveShapeButton"
-                onClick={buttonClick}
-            >
-                Save Shape
-            </button>
+            <SingleCircle shapeProperties={circleProps} />
+            <span className="saveAndResetSpan">            
+                <button
+                    type="button"
+                    className="saveShapeButton"
+                    onClick={reset}
+                >
+                    Reset
+                </button>
+                <button 
+                    type="button"
+                    className="saveShapeButton"
+                    onClick={saveShapeAction}
+                >
+                    Save Shape
+                </button>
+            </span> 
         </div>
     )
 }
