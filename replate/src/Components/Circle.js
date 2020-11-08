@@ -61,7 +61,7 @@ const Circle = ({saveShapes, executeScroll}) => {
             </form>
             
             <SingleCircle shapeProperties={circleProps} />
-            <span>            
+            <span className="saveAndResetSpan">            
                 <button
                     type="button"
                     className="saveShapeButton"

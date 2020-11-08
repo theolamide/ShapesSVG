@@ -78,7 +78,7 @@ const Rectangle = ({saveShapes, executeScroll}) => {
 
             <SingleRectangle shapeProperties={rectProps} />
 
-            <span>            
+            <span className="saveAndResetSpan">            
                 <button
                     type="button"
                     className="saveShapeButton"
