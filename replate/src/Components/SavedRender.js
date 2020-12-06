@@ -12,6 +12,13 @@ const SavedRender = ({myRef}) => {
         alert("Canvas Cleared")
     }
 
+    const deleteSingleShape = (index) => {
+        var existingShapes = JSON.parse(localStorage.getItem("existingProp"))
+        existingShapes.splice(index, 1)
+        localStorage.setItem("existingProp", JSON.stringify(existingShapes))
+        window.location.reload()
+    }
+
     return(
         <div className="renderRoot" ref={myRef}>
             {/* Conditionally render heading. There are two conditionals here becasue of styling purposes.*/}
@@ -35,12 +42,19 @@ const SavedRender = ({myRef}) => {
                         Clear Canvas
                     </button>
 
-                    {savedShapes.map(item =>(
-                        <div className="circleMapContainer" key={item.colorFill}>
+                    {savedShapes.map((item, index) =>(
+                        <div className="circleMapContainer" key={index}>
                             {item.shapeType === "circle" ?
                                 <SingleCircle shapeProperties={item} /> :
                                 <SingleRectangle shapeProperties={item} />
+                                
                             }
+                            <button
+                                className="clearSavedButton"
+                                onClick={deleteSingleShape}
+                            > 
+                                Delete
+                            </button>
                         </div>
                     ))}
 
