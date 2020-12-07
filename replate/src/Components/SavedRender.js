@@ -50,8 +50,8 @@ const SavedRender = ({myRef}) => {
                                 
                             }
                             <button
-                                className="clearSavedButton"
-                                onClick={deleteSingleShape}
+                                onClick={() => deleteSingleShape(index)}
+                                className="saveShapeButton"
                             > 
                                 Delete
                             </button>
